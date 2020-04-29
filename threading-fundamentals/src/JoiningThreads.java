@@ -15,11 +15,12 @@ public class JoiningThreads {
         }
 
         for (Thread thread : threads) {
+            thread.setDaemon(true);
             thread.start();
         }
 
         for (Thread thread : threads) {
-            thread.join();
+            thread.join(2000);
         }
 
         for (int i = 0; i < inputNumbers.size(); i++) {
