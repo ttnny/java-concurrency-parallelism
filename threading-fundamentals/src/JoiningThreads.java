@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class JoiningThreads {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         List<Long> inputNumbers = Arrays.asList(0L, 3456L, 23456L, 4005L, 5790L, 89L, 2020L, 6996L);
         // Calculate 0!, 3456!, 23456!, 4005!, 5790!, 89!, 2020!, 6996!
 
@@ -16,6 +16,10 @@ public class JoiningThreads {
 
         for (Thread thread : threads) {
             thread.start();
+        }
+
+        for (Thread thread : threads) {
+            thread.join();
         }
 
         for (int i = 0; i < inputNumbers.size(); i++) {
