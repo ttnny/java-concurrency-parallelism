@@ -5,8 +5,8 @@ import java.util.List;
 
 public class JoiningThreads {
     public static void main(String[] args) throws InterruptedException {
-        List<Long> inputNumbers = Arrays.asList(0L, 3456L, 23456L, 4005L, 5790L, 89L, 2020L, 6996L);
-        // Calculate 0!, 3456!, 23456!, 4005!, 5790!, 89!, 2020!, 6996!
+        List<Long> inputNumbers = Arrays.asList(1000000L, 3456L, 23456L, 4005L, 5790L, 89L, 2020L, 6996L);
+        // Calculate 1000000!, 3456!, 23456!, 4005!, 5790!, 89!, 2020!, 6996!
 
         List<FactorialThread> threads = new ArrayList<>();
 
@@ -34,7 +34,7 @@ public class JoiningThreads {
     }
 
     public static class FactorialThread extends Thread {
-        private long inputNumber;
+        private final long inputNumber;
         private BigInteger result = BigInteger.ZERO;
         private boolean isFinished = false;
 
